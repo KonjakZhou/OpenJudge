@@ -6,3 +6,4 @@ class Solution:
                 flag[i] = True
             else: 
                 return i
+                
