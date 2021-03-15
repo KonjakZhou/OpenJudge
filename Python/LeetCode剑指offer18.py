@@ -1,8 +1,8 @@
 # Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
 class Solution:
     def deleteNode(self, head, val):
         virtualHead = ListNode(0)
@@ -15,3 +15,4 @@ class Solution:
             if t.val == val:
                 p.next = t.next
                 return virtualHead.next
+            p = p.next
