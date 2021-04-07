@@ -1,7 +1,17 @@
-import pandas as pd
-import collections
-a = {"a":[1,2,3], "b":[11,22,33]}
-a = pd.DataFrame(a)
-for row in a.itertuples():
-    print(pd.DataFrame(row))
-    exit(0)
+def question1(inputList):
+    def func(x):
+        return x + x[-1] * (maxLen - len(x))
+
+    maxLen = 0
+    
+    inputStr = [str(num) for num in inputList]
+    for num in inputStr:
+        n = len(str(num))
+        if maxLen<n:
+            maxLen = n
+    inputStr.sort(key=func, reverse=True)
+    print("".join(inputStr))
+    
+if __name__ == '__main__':
+    a = [3,30,9,5]
+    question1(a)
