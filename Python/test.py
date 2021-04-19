@@ -1,26 +1,16 @@
-mod = 1000000007
+import sympy   # 引入解方程的专业模块sympy
 
-n, m = list(map(int, input().strip().split()))
+import time
 
-a = list(map(int, input().strip().split()))
-d = [a[0]] + [a[i]-a[i-1] for i in range(1,n)]
-y = [d[0]] + [d[i]-d[i-1] for i in range(1,n)]
+start = time.time()
+x = sympy.symbols("x")   # 申明未知数"x"
+y = sympy.symbols("y")   # 申明未知数"x"
 
-for i in range(m):
-    i,j,b = list(map(int, input().strip().split()))
-    i-=1
-    j-=1
-    y[i] += b
-
-    if j<n-1:
-        y[j+1] -= (j-i+2)*b
-    if j<n-2:
-        y[j+2] += (j-i+1)*b
-
-d = [y[0]]
-for i in range(1,n):
-    d.append(d[-1]+y[i])
-a = [d[0]]
-for i in range(1,n):
-    a.append(a[-1]+d[i])
-print(a)
+a = sympy.solve(
+    [
+        x ** 2 + y ** 2 -1,
+        x - y
+    ],[x,y])   # 写入需要解的方程体
+b = [[x.evalf() for x in y ] for y in a]
+print(b)
+print(time.time() - start)
