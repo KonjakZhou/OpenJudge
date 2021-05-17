@@ -1,27 +1,26 @@
-def getFather(x, father):
-    if father[x] == x:
-        return father[x]
-    return getFather(father[x], father)
+import time
+from multiprocessing import Pool
 
-def union(x,y,father):
-    father[x] = y
-    return 
+class testClass(object):
+    def fun(self, k):
+        time.sleep(1)
+        print("{:f} is doing...".format(k))
+        ans = [[k,k], [k,k]]
+        return ans
 
-n, k = map(int, input().strip().split())
+p = Pool(2)
 
-father = [i for i in range(n)]
-ans = [0 for _ in range(n)]
-for i in range(k):
-    a, b = map(int, input().strip().split())
-    if a==b:
-        father[a-1] = a-1
-    else:
-        union(a-1, b-1, father)
-for i in range(n):
-    ans[getFather(i, father)]+=1
+obj = testClass()
+start = time.time()
+ans = list()
+for i in range(20):
+    p.apply_async(obj.fun, args=(float(i),))
+p.close()
+p.join()
+# for i in ans:
+#     print(i.get())
+# print(time.time() - start)
 
-maxx = 0
-for i in range(n):
-    if maxx<ans[i]:
-        maxx = ans[i]
-print(maxx)
+# for i in range(20):
+#     print(obj.fun(i))
+# print(time.time() - start)
