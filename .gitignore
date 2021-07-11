@@ -6,3 +6,6 @@
 
 /Python/*
 !/Python/*.py
+
+.*
+!.gitignore
