@@ -1,11 +1,4 @@
-/C/*
-!/C/*.c
-
-/Cpp/*
-!/Cpp/*.cpp
-
-/Python/*
-!/Python/*.py
-
-.*
+/*
 !.gitignore
+!*.c
+!*.py
