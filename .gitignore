@@ -1,5 +1,8 @@
-*
-!.gitignore
-!*.c
-!*.cpp
-!*.py
+/C/*
+!/C/*.c
+
+/Cpp/*
+!/Cpp/*.cpp
+
+/Python/*
+!/Python/*.py
