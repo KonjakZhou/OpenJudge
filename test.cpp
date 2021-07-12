@@ -1,16 +1,11 @@
 # include <iostream>
+# include <vector>
 
-int fun(){
-    int a[100];
-    std::cout << a[18] << "\n" << std::endl;
-    return 0;
-}
+using namespace std;
 
-int main(){
-    int a = 1;
-    float b = {a};
-
-    fun();
-    std::cout << "hello world\n" ;
-    return 0;
+int main(void) {
+    vector<int> v1 = {1,2,3,4};
+    vector<int> v2(v1.begin(), v1.begin() + 2);
+    
+    cout << v2.size() << endl;
 }
