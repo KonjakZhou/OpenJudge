@@ -10,11 +10,19 @@ public:
         }
         return j;
     }
+
     int minCostClimbingStairs(vector<int>& cost) {
         int n = cost.size();
-        vector<int> ans(n);
 
-        ans[0] = cost[0];
-        cost[1] = cost[]
+        int ans0 = 0;
+        int ans1 = 0;
+
+        for (int i=2; i<n; i++) {
+            int tmp = min(ans0 + cost[i-2], ans1 + cost[i-1]);
+            ans0 = ans1;
+            ans1 = tmp;
+        }
+
+        return ans1;
     }
 };
