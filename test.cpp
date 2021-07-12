@@ -4,8 +4,8 @@
 using namespace std;
 
 int main(void) {
-    vector<int> v1 = {1,2,3,4};
-    vector<int> v2(v1.begin(), v1.begin() + 2);
+    vector<int> v1(10);
     
-    cout << v2.size() << endl;
+    for (int i; i<v1.size(); i++)
+        cout << v1[i] << endl;
 }
