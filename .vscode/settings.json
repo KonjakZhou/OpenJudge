@@ -61,6 +61,9 @@
         "utility": "cpp",
         "vector": "cpp",
         "queue": "cpp",
-        "set": "cpp"
+        "set": "cpp",
+        "__tree": "cpp",
+        "deque": "cpp",
+        "map": "cpp"
     }
 }
