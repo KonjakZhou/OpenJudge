@@ -1,3 +1,8 @@
+#!/usr/bin/env python
+# coding=utf-8
+# Author: zhoubowen
+# Created Time: 2022-07-19 Tuesday 23:01:08
+
 class Solution:
     def search(self, nums, target):
         l = 0
