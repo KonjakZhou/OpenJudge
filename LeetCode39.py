@@ -21,7 +21,7 @@ class Solution:
                 target -= candidates[k]
                 cnt += 1
 
-            for i in range(cnt):
+            for _ in range(cnt):
                 ans_tmp.pop()
             return 
 
