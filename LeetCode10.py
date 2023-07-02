@@ -31,14 +31,18 @@ class Solution:
                 cur_s = s[i-1]
                 cur_p = p[j-1]
                 next_p = p[j] if j-1 < n-1 else ''
+                last_p = p[j-2] if j-1 > 0 else ""
 
                 if next_p == '*':
                     if self.isChrMatch(cur_s, cur_p):
-                        flag[i][j] = flag[i-1][j-1] or flag[i][j-1]
+                        flag[i][j] = flag[i-1][j-1] or flag[i][j-1] or flag[i-1][j]
                     else:
                         flag[i][j] = flag[i][j-1]
                 elif cur_p == '*':
-                    flag[i][j] = flag[i-1][j-1] or flag[i][j-1]
+                    if self.isChrMatch(cur_s, last_p):
+                        flag[i][j] = flag[i-1][j-1] or flag[i][j-1]
+                    else: 
+                        flag[i][j] = flag[i][j-1]
                 elif self.isChrMatch(cur_s, cur_p):
                     flag[i][j] = flag[i-1][j-1]
                 else:
